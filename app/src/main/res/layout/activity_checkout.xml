@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:navigationIcon="@android:drawable/ic_menu_revert"
+        app:title="Checkout"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toTopOf="@id/btnPlaceOrder">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Estimated Delivery -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="@color/colorSecondary">
+                <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp">
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ESTIMATED DELIVERY" android:textSize="10sp" android:textStyle="bold" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Today, 4:30 PM - 5:00 PM" android:textStyle="bold" android:textColor="@color/textColorPrimary" />
+                    </LinearLayout>
+                    <ImageView android:layout_width="40dp" android:layout_height="40dp" android:layout_alignParentEnd="true" android:background="@drawable/bg_otp_box" android:backgroundTint="@color/colorPrimary" android:src="@android:drawable/ic_menu_recent_history" app:tint="@color/white" android:padding="8dp" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Address -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Delivery Address" android:textStyle="bold" android:layout_marginTop="24dp" />
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/divider">
+                <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp">
+                    <ImageView android:id="@+id/ivLoc" android:layout_width="24dp" android:layout_height="24dp" android:src="@android:drawable/ic_menu_mylocation" app:tint="@color/colorPrimary" />
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toEndOf="@id/ivLoc" android:layout_marginStart="12dp" android:orientation="vertical">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Home" android:textStyle="bold" />
+                        <TextView android:layout_width="200dp" android:layout_height="wrap_content" android:text="4521 Oakwood Avenue, Silicon Valley, CA" android:textSize="12sp" android:textColor="@color/textColorSecondary" />
+                    </LinearLayout>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:text="Edit" android:textColor="@color/colorPrimary" android:textStyle="bold" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Payment -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Payment Method" android:textStyle="bold" android:layout_marginTop="24dp" />
+            <RadioGroup
+                android:id="@+id/rgPayment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp">
+                
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/bg_input_rounded"
+                    android:buttonTint="@color/colorPrimary"
+                    android:paddingHorizontal="16dp"
+                    android:text="UPI (GPay, PhonePe)" />
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/bg_input_rounded"
+                    android:buttonTint="@color/colorPrimary"
+                    android:paddingHorizontal="16dp"
+                    android:text="Credit / Debit Card" />
+
+                <RadioButton
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:background="@drawable/bg_input_rounded"
+                    android:buttonTint="@color/colorPrimary"
+                    android:paddingHorizontal="16dp"
+                    android:text="Cash on Delivery" />
+            </RadioGroup>
+
+            <!-- Summary -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Order Summary" android:textStyle="bold" android:layout_marginTop="24dp" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginTop="12dp">
+                <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Organic Bananas (6 pcs)" android:textSize="12sp" android:textColor="@color/textColorSecondary" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:text="$4.99" android:textSize="12sp" />
+                </RelativeLayout>
+                <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Whole Wheat Bread" android:textSize="12sp" android:textColor="@color/textColorSecondary" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:text="$3.50" android:textSize="12sp" />
+                </RelativeLayout>
+                <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Total Payable" android:textStyle="bold" android:textSize="18sp" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:text="$8.49" android:textStyle="bold" android:textSize="22sp" />
+                </RelativeLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <Button
+        android:id="@+id/btnPlaceOrder"
+        style="@style/PrimaryButton"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_margin="20dp"
+        android:text="Place Order ->"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
